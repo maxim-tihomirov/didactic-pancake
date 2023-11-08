@@ -2,7 +2,9 @@
   "name": "didactic-pancake",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "start": "nx serve web"
+  },
   "private": true,
   "devDependencies": {
     "@angular-devkit/build-angular": "~16.1.0",
