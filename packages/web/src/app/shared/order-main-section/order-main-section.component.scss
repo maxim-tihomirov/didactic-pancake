@@ -1,6 +1,22 @@
 :host {
   display: block;
-  background: url("/assets/img/background.jpg"), lightgray 50% / cover no-repeat;
+  position: relative;
+  padding-top: 30%;
+}
+
+.background {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: url('/assets/img/background.jpg'), lightgray 50% / cover no-repeat;
   background-size: 100% auto;
-  padding-bottom: 30%;
+}
+
+.order-form {
+  position: absolute;
+  top: 2rem;
+  transform: translateX(50% );
+  right: 50%;
 }
