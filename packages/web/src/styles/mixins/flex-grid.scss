@@ -1,0 +1,34 @@
+$default-grid-gap: 16px;
+
+@mixin flex-row(
+  $half-padding: $default-grid-gap / 2,
+  $half-padding-vertical: $half-padding
+) {
+  display: flex;
+  flex-wrap: wrap;
+  margin: (-$half-padding-vertical) (-$half-padding);
+}
+
+@mixin flex-col-auto(
+  $half-padding: $default-grid-gap / 2,
+  $half-padding-vertical: $half-padding
+) {
+  flex-basis: auto;
+  min-width: 0;
+  padding: $half-padding-vertical $half-padding;
+}
+
+@mixin flex-col-greedy() {
+  flex-grow: 1;
+}
+
+@mixin flex-col(
+  $taken-cols,
+  $cols: 12,
+  $half-padding: $default-grid-gap / 2,
+  $half-padding-vertical: $half-padding
+) {
+  flex-basis: 100% / ($cols / $taken-cols);
+  min-width: 0;
+  padding: $half-padding-vertical $half-padding;
+}

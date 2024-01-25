@@ -1,0 +1,15 @@
+$default-gap: 10px;
+$default-columns-number: 4;
+$default-element-width: 1fr;
+
+@mixin grid(
+  $grid-row-gap: $default-gap,
+  $grid-column-gap: $default-gap,
+  $grid-columns: $default-columns-number,
+  $element-width: $default-element-width
+) {
+  display: grid;
+  grid-row-gap: $grid-row-gap;
+  grid-column-gap: $grid-column-gap;
+  grid-template-columns: repeat($grid-columns, $element-width);
+}

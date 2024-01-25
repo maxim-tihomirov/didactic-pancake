@@ -1,0 +1,188 @@
+@import "../variables";
+@import "./media";
+
+@mixin text-oneline($ellipsis: true) {
+  white-space: nowrap;
+
+  @if ($ellipsis == true) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+@mixin text-unsafe-content($hyphens: true) {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+
+  @if ($hyphens == true) {
+    hyphens: auto;
+  }
+}
+
+@mixin font-weight-by-map($font-weight) {
+  @if map-has-key($font-thicknesses, $font-weight) {
+    font-weight: map-get($font-thicknesses, $font-weight);
+  } @else {
+    @error "No value could be retrieved from `#{$font-weight}`. "
+        + "Please make sure it is defined in `$font-thicknesses` map.";
+  }
+}
+
+@mixin text-date() {
+  font-size: 14px;
+  font-weight: 400;
+  color: $color-text-muted;
+}
+
+@mixin custom-event-info-title() {
+  font-size: 46px;
+  line-height: (63 / 46);
+
+  @include font-weight-by-map(bold);
+
+  @include media-upto(desktop-large) {
+    font-size: 36px;
+  }
+
+  @include media-upto(tablet) {
+    font-size: 22px;
+  }
+}
+
+@mixin banner-font() {
+  font-size: 40px;
+  line-height: (54 / 40);
+
+  @include font-weight-by-map(extra-bold);
+
+  @include media-upto(tablet-landscape) {
+    font-size: 32px;
+  }
+
+  @include media-upto(tablet) {
+    font-size: 22px;
+  }
+}
+
+@mixin hero-font() {
+  font-size: 40px;
+  line-height: (54 / 40);
+
+  @include font-weight-by-map(extra-bold);
+
+  @include media-upto(tablet) {
+    font-size: 28px;
+  }
+}
+
+@mixin title-1-font($font-weight) {
+  font-size: 36px;
+  line-height: (49 / 36);
+
+  @include media-upto(tablet) {
+    font-size: 22px;
+  }
+
+  @include font-weight-by-map($font-weight);
+}
+
+@mixin title-2-font {
+  font-size: 28px;
+  line-height: (38 / 28);
+
+  @include font-weight-by-map(bold);
+
+  @include media-upto(tablet) {
+    font-size: 18px;
+  }
+}
+
+@mixin title-3-font {
+  font-size: 24px;
+  line-height: (23 / 24);
+
+  @include font-weight-by-map(bold);
+
+  @include media-upto(tablet) {
+    font-size: 16px;
+  }
+}
+
+@mixin headline-1-font($font-weight) {
+  font-size: 22px;
+  line-height: (30 / 22);
+
+  @include font-weight-by-map($font-weight);
+
+  @include media-upto(tablet) {
+    font-size: 16px;
+  }
+}
+
+@mixin headline-2-font($font-weight) {
+  font-size: 18px;
+  line-height: (25 / 18);
+
+  @include font-weight-by-map($font-weight);
+
+  @include media-upto(tablet) {
+    font-size: 16px;
+  }
+}
+
+@mixin text-1-font($font-weight) {
+  font-size: 16px;
+  line-height: (22 / 16);
+
+  @include font-weight-by-map($font-weight);
+
+  @include media-upto(tablet) {
+    font-size: 14px;
+  }
+}
+
+@mixin text-2-font {
+  font-size: 15px;
+  line-height: (22 / 15);
+
+  @include font-weight-by-map(regular);
+
+  @include media-upto(tablet) {
+    font-size: 14px;
+  }
+}
+
+@mixin text-3-font($font-weight) {
+  font-size: 14px;
+  line-height: (19 / 14);
+
+  @include font-weight-by-map($font-weight);
+}
+
+@mixin caption-1-font($font-weight) {
+  font-size: 13px;
+  line-height: (20 / 13);
+
+  @include font-weight-by-map($font-weight);
+}
+
+@mixin caption-2-font($font-weight) {
+  font-size: 12px;
+  line-height: (16 / 12);
+
+  @include font-weight-by-map($font-weight);
+}
+
+@mixin caption-3-font($font-weight) {
+  font-size: 10px;
+  line-height: (14 / 10);
+
+  @include font-weight-by-map($font-weight);
+}
+
+@mixin caption-4-font($font-weight) {
+  font-size: 11px;
+  line-height: 10px;
+
+  @include font-weight-by-map($font-weight);
+}

@@ -1,0 +1,17 @@
+@import "../variables";
+
+@mixin container(
+  $container-max: $container-max-width,
+  $container-min: $container-min-width
+) {
+  display: block;
+  max-width: $container-max;
+  min-width: $container-min;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@mixin scaled-image-container() {
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
+  will-change: transform;
+}

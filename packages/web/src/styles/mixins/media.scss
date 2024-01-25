@@ -1,0 +1,43 @@
+@import "../variables";
+
+@mixin media-from($breakpoint) {
+  @if map-has-key($media-breakpoints, $breakpoint) {
+    @media (min-width: map-get($media-breakpoints, $breakpoint)) {
+      @content;
+    }
+  } @else {
+    @error "No value could be retrieved from `#{$breakpoint}`. "
+        + "Please make sure it is defined in `$media-breakpoints` map.";
+  }
+}
+
+@mixin media-upto($breakpoint) {
+  @if map-has-key($media-breakpoints, $breakpoint) {
+    @media (max-width: (map-get($media-breakpoints, $breakpoint) - 0.5)) {
+      @content;
+    }
+  } @else {
+    @error "No value could be retrieved from `#{$breakpoint}`. "
+        + "Please make sure it is defined in `$media-breakpoints` map.";
+  }
+}
+
+@mixin media-from-width($breakpoint) {
+  @media screen and (min-width: $breakpoint) {
+    @content;
+  }
+}
+
+@mixin media-upto-width($breakpoint) {
+  @media screen and (max-width: ($breakpoint - 1)) {
+    @content;
+  }
+}
+
+@mixin media-hover() {
+  @media (hover: hover) {
+    &:hover:not([disabled]) {
+      @content;
+    }
+  }
+}

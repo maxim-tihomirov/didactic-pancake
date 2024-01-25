@@ -1,0 +1,27 @@
+@import "helpers";
+
+:host {
+  display: flex;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  background-color: $light-grey;
+}
+
+.navigation-list {
+  display: flex;
+  list-style: none;
+  margin-left: 1rem;
+
+  &__item {
+    margin-left: 1.5rem;
+  }
+
+  &__link {
+    @include reset-link();
+    @include transition-basic();
+
+    &:hover {
+      color: $dark-primary-color;
+    }
+  }
+}

@@ -1,0 +1,43 @@
+@import "variables";
+
+$top-default: -1;
+$right-default: -1;
+$bottom-default: -1;
+$left-default: -1;
+
+@mixin base-focus(
+  $top: $top-default,
+  $right: $right-default,
+  $bottom: $bottom-default,
+  $left: $left-default
+) {
+  position: relative;
+  &:focus-visible {
+    @include focus-state($top, $right, $bottom, $left);
+  }
+}
+
+@mixin focus-state(
+  $top: $top-default,
+  $right: $right-default,
+  $bottom: $bottom-default,
+  $left: $left-default
+) {
+  &::after {
+    content: "";
+    z-index: 1;
+    position: absolute;
+    top: $top + px;
+    bottom: $bottom + px;
+    right: $right + px;
+    left: $left + px;
+    border-radius: 16px;
+    box-shadow: 0 0 0 2px $color-blue-status;
+  }
+}
+
+@mixin focus-border {
+  &:focus-visible {
+    border: 2px solid $color-blue-status;
+  }
+}

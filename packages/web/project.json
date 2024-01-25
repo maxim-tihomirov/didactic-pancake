@@ -16,8 +16,11 @@
         "polyfills": ["zone.js"],
         "tsConfig": "packages/web/tsconfig.app.json",
         "assets": ["packages/web/src/favicon.ico", "packages/web/src/assets"],
-        "styles": ["packages/web/src/styles.scss"],
-        "scripts": []
+        "styles": ["packages/web/src/styles.scss", "node_modules/normalize.css/normalize.css"],
+        "scripts": [],
+        "stylePreprocessorOptions": {
+          "includePaths": ["packages/web/src/styles"]
+        }
       },
       "configurations": {
         "production": {
